@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initInteractiveTimer();
     initFaqAccordion();
     fetchLatestGitHubRelease();
+    initPrivacyModal();
 });
 
 /* ─── Header Scroll Effect ────────────────────────────────────────────────── */
@@ -412,3 +413,52 @@ function renderNoAssetsState(container, fallbackUrl) {
         </div>
     `;
 }
+
+/* ─── Privacy Policy Modal ────────────────────────────────────────────────── */
+function initPrivacyModal() {
+    const link = document.getElementById('privacy-policy-link');
+    const modal = document.getElementById('privacy-modal');
+    const closeBtn = document.getElementById('close-privacy-btn');
+    const dismissBtn = document.getElementById('dismiss-privacy-btn');
+
+    if (!modal || !link) return;
+
+    function openModal(e) {
+        if (e) e.preventDefault();
+        modal.style.display = 'flex';
+        // Force a reflow to trigger the scale transition
+        modal.offsetHeight;
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden'; // Stop background scrolling
+    }
+
+    function closeModal() {
+        modal.classList.remove('show');
+        document.body.style.overflow = ''; // Restore background scrolling
+        // Wait for CSS transition to finish before hiding the container
+        setTimeout(() => {
+            if (!modal.classList.contains('show')) {
+                modal.style.display = 'none';
+            }
+        }, 300);
+    }
+
+    link.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (dismissBtn) dismissBtn.addEventListener('click', closeModal);
+
+    // Close on overlay background click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Close on Escape key press
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            closeModal();
+        }
+    });
+}
+
