@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title & SEO Metadata -->
+    <title>DeepFocus — Reclaim Your Productivity with System-Wide Focus Sessions</title>
+    <meta name="description" content="DeepFocus is an elegant, open-source website and distraction blocker built with Rust and Flutter. Block addictive sites system-wide at the network level and manage sessions locally and privately.">
+    <meta name="keywords" content="DeepFocus, website blocker, distraction blocker, hosts file blocker, productivity tool, focus timer, app blocker, chrome extension blocklist, local website blocker, deep work, flow state, open source blocker, windows focus app">
+    <meta name="author" content="Hello-Mirage">
+    <link rel="canonical" href="https://hello-mirage.github.io/deepfocus/">
+
+    <!-- Open Graph / Facebook Previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hello-mirage.github.io/deepfocus/">
+    <meta property="og:title" content="DeepFocus — Reclaim Your Productivity with System-Wide Focus Sessions">
+    <meta property="og:description" content="Block distracting websites system-wide at the network level. Beautiful Flutter dashboard with Rust daemon and browser extension synchronization. 100% private and local.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Hello-Mirage/deepfocus/main/screenshot.png">
+
+    <!-- Twitter Card Previews -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://hello-mirage.github.io/deepfocus/">
+    <meta name="twitter:title" content="DeepFocus — Reclaim Your Productivity with System-Wide Focus Sessions">
+    <meta name="twitter:description" content="Block distracting websites system-wide. Beautiful Flutter dashboard, Rust background daemon, and browser extension. 100% private and local.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Hello-Mirage/deepfocus/main/screenshot.png">
+
+    <!-- Structured Data (JSON-LD) for SEO Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "DeepFocus",
+      "operatingSystem": "Windows 10, Windows 11",
+      "applicationCategory": "ProductivityApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      },
+      "description": "An elegant, system-wide distraction blocker built with Rust and Flutter. Blocks addictive websites at the hosts/network level with browser extension support.",
+      "softwareVersion": "1.0.0",
+      "license": "https://opensource.org/licenses/MIT",
+      "downloadUrl": "https://github.com/Hello-Mirage/deepfocus/releases"
+    }
+    </script>
+
+    <!-- Stylesheet Link -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon (Fallback CSS-Based SVG favicon) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%237C3AED'/><circle cx='50' cy='50' r='25' fill='white'/></svg>">
+</head>
+<body>
+
+    <!-- Fixed Ambient Background Lights -->
+    <div class="bg-glow-container" aria-hidden="true">
+        <div class="bg-blob blob-purple"></div>
+        <div class="bg-blob blob-indigo"></div>
+    </div>
+
+    <!-- Glassmorphic Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo" aria-label="DeepFocus Home">
+                <img src="./logo.png" alt="DeepFocus Logo" class="logo-img">
+                <span class="logo-text">DeepFocus</span>
+            </a>
+            
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="4" y1="12" x2="20" y2="12"></line>
+                    <line x1="4" y1="6" x2="20" y2="6"></line>
+                    <line x1="4" y1="18" x2="20" y2="18"></line>
+                </svg>
+            </button>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                    <li><a href="#downloads" class="nav-link">Downloads</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                </ul>
+                <a href="#downloads" class="btn-nav-download" id="nav-download-cta">Download App</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="badge-container">
+                    <div class="hero-badge">
+                        <span class="hero-badge-pulse"></span>
+                        <span>Now in Public Release</span>
+                    </div>
+                </div>
+                <h1>Take Back Your Attention with <span>DeepFocus</span></h1>
+                <p class="hero-desc">
+                    Reclaim your focus with a sleek, system-wide distraction blocker. Powered by a high-performance Rust daemon, integrated with a Chrome extension, and managed via a gorgeous Flutter dashboard.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#downloads" class="btn btn-primary" id="main-download-cta">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+                        </svg>
+                        <span>Download for Windows</span>
+                    </a>
+                    <a href="https://github.com/Hello-Mirage/deepfocus" class="btn btn-secondary" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+                        </svg>
+                        <span>View on GitHub</span>
+                    </a>
+                </div>
+                <div class="release-subtext">
+                    <span>Latest Release:</span>
+                    <span class="gh-release-version" style="font-weight:700;">v1.0.0</span>
+                    <span style="color:var(--text-dark);">|</span>
+                    <span class="gh-release-date">May 2026</span>
+                </div>
+            </div>
+            
+            <!-- Hero Interactive Demo Widget (Simulated App Layout) -->
+            <div class="hero-visual">
+                <div class="app-mockup" id="interactive-app-wrapper">
+                    
+                    <!-- Title Bar -->
+                    <div class="mock-titlebar">
+                        <div class="mock-window-dots">
+                            <span class="mock-dot mock-dot-close" aria-hidden="true"></span>
+                            <span class="mock-dot mock-dot-minimize" aria-hidden="true"></span>
+                            <span class="mock-dot mock-dot-maximize" aria-hidden="true"></span>
+                        </div>
+                        <div class="mock-app-title">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                            <span>DeepFocus</span>
+                        </div>
+                        <div style="width: 42px;"></div> <!-- Spacer -->
+                    </div>
+
+                    <!-- App Body -->
+                    <div class="mock-body">
+                        
+                        <!-- Left Sidebar -->
+                        <aside class="mock-sidebar">
+                            <div class="mock-section-title">Dashboard</div>
+                            
+                            <!-- Session Panel Card -->
+                            <div class="mock-session-panel">
+                                <span class="mock-session-title">Session Panel</span>
+                                <div class="mock-timer-display">
+                                    <svg viewBox="0 0 70 70">
+                                        <circle class="circle-bg" cx="35" cy="35" r="32.5"></circle>
+                                        <circle class="circle-progress" cx="35" cy="35" r="32.5"></circle>
+                                    </svg>
+                                    <span class="mock-timer-text">25:00</span>
+                                </div>
+                                <button class="mock-btn-start" aria-label="Start simulated focus timer">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    <span>Start Focus</span>
+                                </button>
+                            </div>
+
+                            <div class="mock-section-title">Tools</div>
+                            <div class="mock-sidebar-btn accent">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                                <span>Add Website</span>
+                            </div>
+                            <div class="mock-sidebar-btn">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2.5 2v6h6M21.5 22v-6h-6"/><path d="M22 11.5A10 10 0 0 0 9.5 2.5M2 12.5a10 10 0 0 0 12.5 9"/></svg>
+                                <span>Revert Changes</span>
+                            </div>
+
+                            <!-- Sidebar Stats Card -->
+                            <div class="mock-stats-card">
+                                <div class="mock-stats-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                                </div>
+                                <div class="mock-stats-info">
+                                    <span class="mock-stats-num">8</span>
+                                    <span class="mock-stats-lbl">sites blocked</span>
+                                </div>
+                            </div>
+                        </aside>
+
+                        <!-- Main Screen Area -->
+                        <section class="mock-main">
+                            <div class="mock-main-header">
+                                <div>
+                                    <h2 class="mock-main-title">Blocked Sites</h2>
+                                    <span class="mock-main-desc">These sites are blocked during active sessions</span>
+                                </div>
+                                <!-- Active Session Chip -->
+                                <div class="mock-active-chip">
+                                    <span class="mock-active-chip-dot"></span>
+                                    <span>Session Active</span>
+                                </div>
+                            </div>
+
+                            <!-- Sites Grid -->
+                            <div class="mock-grid">
+                                <div class="mock-card">
+                                    <div class="mock-card-left">
+                                        <div class="mock-card-logo" style="color: #EF4444; background: rgba(239, 68, 68, 0.1);">Y</div>
+                                        <span class="mock-card-name">youtube.com</span>
+                                    </div>
+                                    <span class="mock-card-shield" aria-hidden="true">
+                                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l5.59-5.59L18 9l-7 7z"/></svg>
+                                    </span>
+                                </div>
+                                <div class="mock-card">
+                                    <div class="mock-card-left">
+                                        <div class="mock-card-logo" style="color: #1877F2; background: rgba(24, 119, 242, 0.1);">F</div>
+                                        <span class="mock-card-name">facebook.com</span>
+                                    </div>
+                                    <span class="mock-card-shield" aria-hidden="true">
+                                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l5.59-5.59L18 9l-7 7z"/></svg>
+                                    </span>
+                                </div>
+                                <div class="mock-card">
+                                    <div class="mock-card-left">
+                                        <div class="mock-card-logo" style="color: #1DA1F2; background: rgba(29, 161, 242, 0.1);">T</div>
+                                        <span class="mock-card-name">twitter.com</span>
+                                    </div>
+                                    <span class="mock-card-shield" aria-hidden="true">
+                                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l5.59-5.59L18 9l-7 7z"/></svg>
+                                    </span>
+                                </div>
+                                <div class="mock-card">
+                                    <div class="mock-card-left">
+                                        <div class="mock-card-logo" style="color: #E1306C; background: rgba(225, 48, 108, 0.1);">I</div>
+                                        <span class="mock-card-name">instagram.com</span>
+                                    </div>
+                                    <span class="mock-card-shield" aria-hidden="true">
+                                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l5.59-5.59L18 9l-7 7z"/></svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+
+                    <!-- Footer Status Bar -->
+                    <footer class="mock-statusbar">
+                        <div class="mock-status-left">
+                            <span class="mock-status-indicator"></span>
+                            <span>Daemon: Active</span>
+                        </div>
+                        <span>Extension Status: Synced</span>
+                    </footer>
+
+                </div>
+                
+                <!-- Floating Decorative Ambient Glow Circle Behind the App UI Mockup -->
+                <div class="glow-ring" aria-hidden="true"></div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="section-header">
+                <span class="section-label">Features</span>
+                <h2 class="section-title">Engineered for Flow State</h2>
+                <p class="section-desc">Traditional blocklists are too easy to bypass. DeepFocus provides network-level protection and deep OS integration to secure your focus.</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Card 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    </div>
+                    <h3 class="feature-title">System-Wide Rust Daemon</h3>
+                    <p class="feature-desc">Operates directly at the Windows network and hosts level. Blocks distracting domains completely across all web browsers, incognito modes, and desktop apps with zero workarounds.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Chrome Extension Sync</h3>
+                    <p class="feature-desc">Synchronizes seamlessly with your browser. When you visit blocked domains, the companion extension intercepts the request and instantly redirects you to a beautiful distraction-free splash page.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Privacy-First & Local</h3>
+                    <p class="feature-desc">No cloud databases, no tracking analytics, and no mandatory accounts. DeepFocus runs entirely locally on your hardware. Your block configurations and browsing sessions stay yours alone.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="workflow">
+            <div class="workflow-container">
+                <div class="section-header">
+                    <span class="section-label">How It Works</span>
+                    <h2 class="section-title">Block. Focus. Achieve.</h2>
+                    <p class="section-desc">Setting up DeepFocus is straightforward and takes less than two minutes.</p>
+                </div>
+                
+                <div class="steps-grid">
+                    <!-- Step 1 -->
+                    <div class="step-item">
+                        <div class="step-num">1</div>
+                        <h3 class="step-title">Deploy Bundle</h3>
+                        <p class="step-desc">Download and install the native DeepFocus desktop application and connect the Chrome extension.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="step-item">
+                        <div class="step-num">2</div>
+                        <h3 class="step-title">Configure Lists</h3>
+                        <p class="step-desc">Add the domains you want to avoid during sessions (e.g. reddit.com, twitter.com) to your dashboard.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="step-item">
+                        <div class="step-num">3</div>
+                        <h3 class="step-title">Start Session</h3>
+                        <p class="step-desc">Click 'Start Focus' in the Flutter panel. The Rust daemon activates to secure your network instantly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Downloads & Release Section -->
+        <section id="downloads" class="downloads-section">
+            <div class="downloads-wrapper">
+                <div class="downloads-inner-grid">
+                    <div class="downloads-left">
+                        <span class="downloads-tag" aria-live="polite">
+                            <span class="hero-badge-pulse" style="background-color: var(--success)"></span>
+                            Loading latest...
+                        </span>
+                        <h3>Get DeepFocus for <span>Windows</span></h3>
+                        <p>
+                            Download the installer bundle to set up both the native companion dashboard and the backend network daemon. Fully compatible with Windows 10 and Windows 11.
+                        </p>
+                        
+                        <!-- Release assets table container, populated via app.js with skeleton shimmers on start -->
+                        <div class="release-assets-container" id="release-assets-container">
+                            <div class="assets-header" aria-hidden="true">Available Release Files</div>
+                            <div class="shimmer-loader" aria-hidden="true">
+                                <div class="shimmer-bar"></div>
+                                <div class="shimmer-bar"></div>
+                                <div class="shimmer-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="downloads-right" style="border-left: 1px solid var(--border-color); padding-left: 3rem;">
+                        <div style="background: rgba(8, 13, 26, 0.4); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+                            <h4 style="font-family: var(--font-title); font-size: 1.2rem; font-weight: 600; color: var(--secondary);">Why system privileges?</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                                The background Rust daemon modifications require local Administrator access on startup solely to manage hosts routing configuration and lock the hosts file during focus sessions.
+                            </p>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 0.5rem 0;">
+                            <div style="display: flex; gap: 0.5rem; align-items: center; font-size: 0.8rem; color: var(--text-muted);">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="color: var(--success);"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                <span>No analytical tracking cookies</span>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem; align-items: center; font-size: 0.8rem; color: var(--text-muted);">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="color: var(--success);"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                <span>100% open-source local binaries</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="section-header">
+                <span class="section-label">FAQ</span>
+                <h2 class="section-title">Common Questions</h2>
+                <p class="section-desc">Have questions about how DeepFocus works under the hood?</p>
+            </div>
+            
+            <div class="faq-list">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-question-btn">
+                        <span>How does DeepFocus block websites system-wide?</span>
+                        <svg class="faq-icon-arrow" viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>
+                                DeepFocus operates a native Rust background daemon with administrative privileges. When you click "Start Focus" in your dashboard, the daemon updates the system routing parameters and maps the blocked domains to <code>127.0.0.1</code> (localhost) in the Windows hosts configuration. This guarantees that requests are blocked instantly before any browser processing, making it impossible to circumvent by changing browsers or going incognito.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <button class="faq-question-btn">
+                        <span>Is the Chrome Extension required to block sites?</span>
+                        <svg class="faq-icon-arrow" viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>
+                                No, but it is highly recommended! The Rust network daemon handles the absolute blocking at the IP routing level. However, visiting blocked sites on a normal browser will result in a generic browser "Site cannot be reached" error.
+                            </p>
+                            <p style="margin-top: 0.5rem;">
+                                The optional DeepFocus Chrome Extension runs as a companion. It monitors your browser and redirects those connection failures to an elegant, custom built-in HTML splash screen that actively reminds you to get back to work, ensuring a smoother user experience.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-question-btn">
+                        <span>Does DeepFocus record or share my browsing history?</span>
+                        <svg class="faq-icon-arrow" viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>
+                                Never. DeepFocus is designed with absolute privacy as its core tenet. The software functions completely locally on your device. There are no remote sync servers, tracker beacons, or tracking telemetry. Your lists, session analytics, and app configuration remain entirely sandboxed on your personal storage.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-question-btn">
+                        <span>How do I unlock or restore my hosts configuration if the app closes?</span>
+                        <svg class="faq-icon-arrow" viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>
+                                DeepFocus always cleanly reverts any changes when you stop a session or exit the dashboard. In the rare event of a system crash, simply open the dashboard and click the "Revert Changes" button in the sidebar. This will instantly communicate with the local daemon service to restore your default original configurations safely.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo" aria-label="DeepFocus Home">
+                        <img src="./logo.png" alt="DeepFocus Logo" class="logo-img">
+                        <span class="logo-text">DeepFocus</span>
+                    </a>
+                    <p>Take back control of your attention. Secure your flow state with high-performance native tools built local-first.</p>
+                    <div class="footer-socials">
+                        <a href="https://github.com/Hello-Mirage/deepfocus" class="social-link" target="_blank" rel="noopener" aria-label="DeepFocus GitHub Repository">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-grid">
+                    <div class="footer-column">
+                        <h4>Application</h4>
+                        <ul>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#how-it-works">How It Works</a></li>
+                            <li><a href="#downloads">Download App</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="https://github.com/Hello-Mirage/deepfocus" target="_blank" rel="noopener">GitHub Issues</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 DeepFocus. Released under the MIT License.</p>
+                <p>Designed for Windows 10 & 11</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core App Logic Script -->
+    <script src="app.js"></script>
+</body>
+</html>
